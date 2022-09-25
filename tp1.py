@@ -36,7 +36,7 @@ def parse_file(file_name:str):
 
     # safety check
     total_edges = sum(len(e) for e in edges.values())
-    assert total_edges == int(m), f'{total_edges=} != {int(m)=}'
+    assert total_edges / 2 == int(m), f'{total_edges / 2=} != {int(m)=}'
     assert len(times) == int(n), f'{len(times)=} != {int(n)=}'
 
     return edges, times
