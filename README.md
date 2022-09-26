@@ -17,6 +17,12 @@ Es claro que este algoritmo no necesariamente resultaría en una solución ópti
 
 Una idea alternativa era escribir el problema en una forma recursiva para poder utilizar programción dinámica. Se podrían generar todos los subconjuntos válidos (es decir, los cuales incluyen prendas que pueden pertencer a un mismo lavado) ya que cuantas más restricciones haya, menos de estos deberían existir, y luego tratar de construir lavados que contengan todas las prendas combinándolos. Es claro que habrá combinaciones que se prueben múltiples veces, con lo que podríamos memorizar esos resultados intermedios para acelerar los cálculos. No llegué a probar esta alternativa por cuestiones de tiempo.
 
+### Coloreo de grafo
+
+El problema puede modelarse como un coloreo de grafo, donde podemos considerar que cada color es un lavado (y por lo tanto, los nodos que tengan el mismo color van al mismo lavado). En general (¿siempre?) va a ser positivo tener menos colores, ya que por cada color solamente se va a sumar el mayor tiempo del grupo. Por lo tanto, si se aplica un algoritmo de coloreo que busque la menor cantidad de colores posibles, sería una buena aproximación a una solución. Lamenteablemente, encontrar este número es NP-hard, pero existen varios algoritmos que mediante heurísticas encuentran soluciones "decentes". Realicé una prueba pero los resultados del algortimo no fueron mejores que la solución greedy actual (aunque el algoritmo para encontrar el coloreo también era greedy).
+
+El siguiente paso sería probar encontrar un mejor coloreo utilizando un algoritmo evolutivo.
+
 # Comentarios finales de la entrega
 
 El algoritmo greedy parece tener un buen desempeño. Intenté mejorar el resultado manualmente pero me fue difícil encontrar un mejor (aunque realizar este trabajo manualmente es complicado, ja!) y su ejecución es bastante rápida.
